@@ -15,5 +15,5 @@ services:
       - MONGO_COLLECTION=beacons
 
   mongo:
-    image: mongo:3.4
+    image: mongo:4.1.9
 

@@ -26,8 +26,8 @@ try {
     docker-compose -f ./docker/docker-compose.yml up -d
 
     Start-Sleep -Seconds 10
-    Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/ping
-    Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/v1/user_accounts/get_accounts -Method Post
+    Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/heartbeat
+    Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/v1/beacons/get_beacons -Method Post
 
     Write-Host "The container was successfully built."
 } finally {

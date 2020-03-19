@@ -1,10 +1,11 @@
 # Build stage
+# Start with the dotnet:2.1-sdk image
 FROM microsoft/dotnet:2.1-sdk AS build
 
-# set working directory
+# Set a working directory
 WORKDIR /app
 
-# Restore
+# Copy & restore project files
 COPY src/Interface/Interface.csproj ./src/Interface/
 RUN dotnet restore src/Interface/Interface.csproj
 COPY src/Service/Service.csproj ./src/Service/

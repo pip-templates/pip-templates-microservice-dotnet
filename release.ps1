@@ -3,6 +3,8 @@
 Set-StrictMode -Version latest
 $ErrorActionPreference = "Stop"
 
+# Load the component's metadata from the "component.json" file and 
+# make sure its version matches the versions in the project files
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 [xml]$xml = Get-Content -Path src/Interface/Interface.csproj
 $version = $xml.Project.PropertyGroup.Version
@@ -26,8 +28,10 @@ if ($component.version -ne $version) {
 # dotnet build src/Client/Client.csproj -c Release
 # dotnet pack src/Client/Client.csproj -c Release -o ../../dist
 
+# Get packages from the ".nupkg" file
 $packages = (Get-ChildItem -Path "dist/*.$version.nupkg")
 
+# Publish all packages
 foreach ($package in $packages)
 {
     $packagePath = $package.FullName

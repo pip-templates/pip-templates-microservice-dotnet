@@ -1,10 +1,11 @@
-# Build stage
+#Build stage
+# Start with the dotnet:2.1-sdk image
 FROM microsoft/dotnet:2.1-sdk AS build
 
-# set working directory
+# Set a working directory
 WORKDIR /app
 
-# Restore
+# Copy & restore project files
 COPY src/Interface/Interface.csproj ./src/Interface/
 RUN dotnet restore src/Interface/Interface.csproj
 COPY src/Service/Service.csproj ./src/Service/
@@ -30,7 +31,7 @@ RUN dotnet publish src/Process/Process.csproj -o /obj
 # Runtime stage
 FROM microsoft/dotnet:2.1-runtime
 
-# set working directory
+# Set a working directory
 WORKDIR /app
 
 # Copy compiled binaries
@@ -39,11 +40,14 @@ COPY --from=build /obj ./bin
 # Copy configuration
 COPY config/*.* ./config/
 
+# Set environment variables
 ENV MONGO_SERVICE_URI ""
 ENV MONGO_SERVICE_HOST mongo
 ENV MONGO_SERVICE_PORT 27017
 ENV MONGO_DB app
 
+# Expose the port
 EXPOSE 8080
 
+# Specify the command to run
 CMD ["dotnet", "./bin/run.dll", "-c", "./config/config.yml"]

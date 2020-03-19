@@ -21,6 +21,7 @@ Remove-Item -Force -Recurse -Path "*.nupkg"
 # Remove docker images
 docker rmi $buildImage --force
 docker rmi $testImage --force
+docker rmi $rcImage --force
 docker image prune --force
 
 # Remove existed containers

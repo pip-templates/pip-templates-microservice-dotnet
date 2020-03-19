@@ -1,9 +1,10 @@
 #!/usr/bin/env pwsh
 
-# Generate image names using the data in the "component.json" file
+# Recreate image names using the data in the "component.json" file
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
 $buildImage="$($component.registry)/$($component.name):$($component.version)-build"
 $testImage="$($component.registry)/$($component.name):$($component.version)-test"
+$rcImage="$($component.registry)/$($component.name):$($component.version)-$($component.build)-rc"
 
 # Clean up build directories
 if (Test-Path "obj") {

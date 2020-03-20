@@ -46,7 +46,7 @@ Retrieves a collection of beacons, according to the specified criteria
   - take: int - (optional) page length (max: 100). Operation returns paged results
 
 **Response body:**
-A DataPage<BeaconV1> object, containing an array of BeaconV1 objects as the DataPage's data, or an error
+A DataPage<BeaconV1> object that contains an array of BeaconV1 objects as its "data", or an error
 
 ### <a name="operation2"></a> Method: 'POST', route '/v1/beacons/get_beacon_by_id'
 

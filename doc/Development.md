@@ -26,7 +26,7 @@ you may need to install a database server:
 
 ## <a name="install"></a> Installing
 
-Once your environment is ready you can check out the microservice's source code from the GitHub repository:
+Once your environment is ready, you can check out the microservice's source code from the GitHub repository:
 ```bash
 git clone https://github.com/pip-templates/pip-templates-microservice-dotnet.git
 ```

@@ -55,7 +55,7 @@ public interface IBeaconsClientV1
 
 ## Download
 
-Right now, the only way to get the microservice is to check it out directly from the github repository
+Right now, the only way to get the microservice is to check it out directly from the GitHub repository
 ```bash
 git clone https://github.com/pip-templates/pip-templates-microservice-dotnet.git
 ```

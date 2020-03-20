@@ -5,13 +5,13 @@
 ## <a name="process"></a> Standalone Process
 
 The simplest way to deploy the microservice is to run it as a standalone process. 
-This microservice is implemented in .NET Core and requires installation of .NET Core SDK. 
-You can get it from the official site at https://www.microsoft.com/net/download/
+This microservice is implemented in .NET Core and requires installation of the .NET Core SDK. 
+You can get it from the official website: https://www.microsoft.com/net/download/
 
-**Step 1.** Download microservices by following [instructions](Download.md)
+**Step 1.** Download the microservice by following these [instructions](Download.md)
 
-**Step 2.** Add **config.yml** file to the root of the microservice folder and set configuration parameters. 
-See [Configuration Guide](Configuration.md) for details.
+**Step 2.** Add the **config.yml** file to the root of the microservice and set configuration parameters as needed. 
+See the [Configuration Guide](Configuration.md) for details on how this is done.
 
 **Step 3.** Start the microservice using the command:
 

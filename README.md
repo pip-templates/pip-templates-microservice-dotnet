@@ -1,13 +1,13 @@
 # <img src="https://github.com/pip-services/pip-services/raw/master/design/Logo.png" alt="Pip.Services Logo" style="max-width:30%"> <br/> Beacons microservice
 
-This is Beacons microservice from Pip.Templates library. 
+This is the Beacons microservice from the Pip.Templates library. 
 
 The microservice currently supports the following deployment options:
 * Deployment platforms: Standalone Process
 * External APIs: HTTP/REST
 * Persistence: Memory, Flat Files, MongoDB
 
-This microservice has no dependencies on other microservices.
+This microservice does not depend on other microservices.
 
 <a name="links"></a> Quick Links:
 
@@ -20,7 +20,7 @@ This microservice has no dependencies on other microservices.
 
 ## Contract
 
-Logical contract of the microservice is presented below. 
+The logical contract of the microservice is presented below. 
 
 ```cs
 public class BeaconV1 : IStringIdentifiable
@@ -55,18 +55,18 @@ public interface IBeaconsClientV1
 
 ## Download
 
-Right now the only way to get the microservice is to check it out directly from github repository
+Right now, the only way to get the microservice is to check it out directly from the github repository
 ```bash
 git clone https://github.com/pip-templates/pip-templates-microservice-dotnet.git
 ```
 
-Pip.Service team is working to implement packaging and make stable releases available for your as zip downloadable archieves.
+The Pip.Service team is working on implementing packaging, to make stable releases available as zip-downloadable archives.
 
 ## Run
 
-Add **config.yml** file to the config folder and set configuration parameters.
+Add the **config.yml** file to the config folder and set configuration parameters as needed.
 
-Example of microservice configuration
+Example of a microservice configuration
 ```yaml
 ---
 # Console logger
@@ -118,9 +118,9 @@ Example of microservice configuration
   route: status
 ```
  
-For more information on the microservice configuration see [Configuration Guide](Configuration.md).
+For more information on microservice configuration, see [The Configuration Guide](Configuration.md).
 
-Start the microservice using the command:
+The microservice can be started using the command:
 ```bash
 cd run
 dotnet run
@@ -128,21 +128,21 @@ dotnet run
 
 ## Use
 
-The easiest way to work with the microservice is to use client SDK. 
+The easiest way to work with the microservice is through the client SDK. 
 
-If you use .NET Core then get the reference to the required libraries:
+If you use .NET Core, then get references to the required libraries:
 - Pip.Services3.Commons : https://github.com/pip-services3-dotnet/pip-services3-commons-dotnet
 - Pip.Services3.Rpc: 
 https://github.com/pip-services3-dotnet/pip-services3-rpc-dotnet
 
-Add **PipServices3.Commons** and **Beacons.Clients.Version1** namespaces
+Add the **PipServices3.Commons** and **Beacons.Clients.Version1** namespaces
 ```cs
 using PipServices3.Commons.Config;
 using PipServices3.Commons.Refer;
 using Beacons.Clients.Version1;
 ```
 
-Define client configuration parameters that match configuration of the microservice external API
+Define client configuration parameters that match the configuration of the microservice's external API
 ```cs
 // Client configuration
 var config = ConfigParams.FromTuples(
@@ -152,12 +152,12 @@ var config = ConfigParams.FromTuples(
 );
 ```
 
-Instantiate the client and open connection to the microservice
+Instantiate the client and open a connection to the microservice
 ```cs
 // Create the client instance
 var client = new BeaconsHttpClientV1();
 
-// Confige the client
+// Configure the client
 client.Configure(config);
 
 // Connect to the microservice
@@ -167,9 +167,9 @@ client.OpenAsync(null);
 ...
 ```
 
-Now the client is ready to perform operations
+The client is now ready to perform operations
 ```cs
-// Create the beacon
+// Create a beacon
 var beacon = new BeaconV1
 {
 	Udi = "00001",
